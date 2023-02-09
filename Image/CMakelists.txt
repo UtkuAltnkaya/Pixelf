@@ -1,9 +1,16 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(opencvtest VERSION 0.1.0)
+project(Pixelf VERSION 0.1.0)
 
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-add_executable(opencvtest main.cpp)
+set(PROJECT_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+set(PROJECT_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src)
 
-target_link_libraries(opencvtest ${OpenCV_LIBS})
+file(GLOB PROJECT_SOURCES "${PROJECT_SOURCE_DIR}/*.cpp")
+file(GLOB PROJECT_HEADERS "${PROJECT_INCLUDE_DIR}/*.hpp")
+
+include_directories(${PROJECT_INCLUDE_DIR})
+
+add_executable(Pixelf ${PROJECT_HEADERS} ${PROJECT_SOURCES})
+target_link_libraries(Pixelf ${OpenCV_LIBS})
