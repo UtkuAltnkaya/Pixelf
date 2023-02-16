@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    box-sizing: border-box
+}
+
+
+.bg {
+    justify-content: center;
+    position: relative;
+}
+
+#bg-image {
+    object-fit: cover;
+    height: 70vh;
+    width: 100%;
+}
+
+.big-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -250%);
+    color: black;
+    font-size: 6rem
+}
