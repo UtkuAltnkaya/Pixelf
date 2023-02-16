@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
 html {
     scroll-behavior: smooth;
 }
 
 .navbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    background-color: #333;
+    background-color: transparent;
     z-index: 999;
 }
 
@@ -48,6 +50,8 @@ html {
     color: #fff;
     text-decoration: none;
     font-size: 1.5rem;
+    font-family: 'DotGothic16', sans-serif;
+
 }
 
 @media screen and (max-width: 768px) {
@@ -81,7 +85,6 @@ html {
 .bg {
     justify-content: center;
     position: relative;
-    margin-top: 80px;
 }
 
 #bg-image {
@@ -94,9 +97,20 @@ html {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -250%);
-    color: black;
-    font-size: 6rem
+    transform: translate(-50%, -70%);
+    color: floralwhite;
+    font-size: 6rem;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+.little-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 120%);
+    font-size: 1.5rem;
+    font-family: 'DotGothic16', sans-serif;
+    color: floralwhite;
 }
 
 * {
