@@ -12,6 +12,7 @@ html {
     height: 80px;
     background-color: transparent;
     z-index: 999;
+    backdrop-filter: blur(.5rem);
 }
 
 .navbar-container {
@@ -26,14 +27,26 @@ html {
 
 .navbar-logo {
     margin-right: auto;
+    display: flex;
+    align-items: center;
 }
+
+.logo-name {
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'DotGothic16', sans-serif;
+    padding: 10px;
+    text-decoration: underline;
+}
+
 
 #logo-img {
     border-radius: 50%;
 }
 
 .navbar-logo img {
-    height: 50px;
+    height: 80px;
 }
 
 .navbar-menu {
@@ -120,7 +133,7 @@ html {
 }
 
 .cards-section {
-    background-color: black;
+    background-color: #698269;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -221,4 +234,48 @@ html {
 
 .card-group:hover>.little-card:nth-child(7) {
     transform: translate(-280%, 140%) rotate(-15deg);
+}
+
+
+.intro {
+    background-color: #F1DBBF;
+}
+
+
+.features {
+    display: flex;
+    height: 70vh;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+}
+
+.features .feature {
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.feature h1 {
+    font-family: 'DotGothic16', sans-serif;
+    font-size: 3rem;
+}
+
+.feature {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.feature i {
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+.big-image {
+    height: 100%;
+    width: 100%;
+}
+
+.little-image {
+    height: 100%;
+    width: 100%;
 }

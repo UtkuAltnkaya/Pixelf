@@ -52,6 +52,7 @@ void Image::run()
     this->addGrayScale();
   }
 
+  cv::imwrite("output.jpg", this->result);
   cv::imshow("Result", this->result);
   cv::waitKey(0);
 }
