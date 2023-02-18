@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+  font-family: 'DotGothic16', sans-serif;
 }
 
 html {
@@ -321,11 +322,49 @@ footer {
   flex-direction: column;
   flex: 2;
   height: auto;
-  background: red;
 }
 
 .tools-title {
   text-align: center;
+  text-decoration: underline;
+}
+
+.tools .tool {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 3rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tools .tool #block-size-input {
+  border-radius: 5px;
+  width: 6rem;
+  padding: 0 0.4rem;
+  font-size: 1.4rem;
+}
+
+.tools .tool #block-size-input:focus {
+  outline: none;
+}
+
+.tools .tool #block-size-input::-webkit-inner-spin-button,
+.tools .tool #block-size-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.tools #checkbox-div {
+  display: flex;
+}
+.tools #checkbox-div div:nth-child(1) {
+  flex: 6;
+}
+.tools #checkbox-div div:nth-child(2) {
+  flex: 1;
 }
 
 .image-process {
