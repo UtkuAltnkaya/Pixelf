@@ -369,7 +369,16 @@ footer {
 
 .image-process {
   flex: 5;
-  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.image-result-container {
+  max-width: 48rem;
+  max-height: 48rem;
+  background-color: brown;
 }
 
 .image-result {

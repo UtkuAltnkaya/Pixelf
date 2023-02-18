@@ -14,13 +14,26 @@ openModal.addEventListener('click', () => {
   image.src = 'image/bg.png';
 
   if (image.src) {
-    const imageWidth = image.width;
-    const imageHeight = image.height;
+  const imageWidth = image.width;
+  const imageHeight = image.height;
 
-    image.style.height = `${100 - 100 * (1 - imageHeight / imageWidth)}%`;
-    image.style.width = `${100 - 100 * (1 - imageWidth / imageHeight)}%`;
-    imageProcess.appendChild(image);
+  image.style.maxHeight = `${100}%`;
+  image.style.maxWidth = `${100}%`;
+  image.style.height = `${100 - 100 * (1 - imageHeight / imageWidth)}%`;
+  image.style.width = `${100 - 100 * (1 - imageWidth / imageHeight)}%`;
+  
+  if(100 - 100 * (1 - imageHeight / imageWidth) >= 100 )
+  {
+    image.style.height = `${100}%`;
   }
+  if(100 - 100 * (1 - imageWidth / imageHeight) >= 100 )
+  {
+    image.style.width = `${100}%`;
+  }
+
+  
+  imageProcess.appendChild(image);
+}
 });
 
 // modal.addEventListener('click', () => {
