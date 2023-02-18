@@ -51,23 +51,20 @@ void Image::run()
   {
     this->addGrayScale();
   }
-
   cv::imwrite("output.jpg", this->result);
-  cv::imshow("Result", this->result);
-  cv::waitKey(0);
 }
 
 void Image::resizeImage(cv::Mat &resize)
 {
   cv::Size size(this->src.cols / std::stoi(this->inputs["-blockSize"]), this->src.rows / std::stoi(this->inputs["-blockSize"]));
-  cv::resize(this->src, resize, size, 0, 0, cv::INTER_NEAREST); // TODO INTER
+  cv::resize(this->src, resize, size, 0, 0, std::stoi(this->inputs["-interIndex"])); // TODO INTER
 }
 
 void Image::convertToPixelArt()
 {
   cv::Mat resized;
   this->resizeImage(resized);
-  cv::resize(resized, this->result, this->src.size(), 0, 0, cv::INTER_NEAREST);
+  cv::resize(resized, this->result, this->src.size(), 0, 0, std::stoi(this->inputs["-interIndex"]));
 }
 
 void Image::kMeans()
