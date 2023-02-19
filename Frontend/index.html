@@ -137,13 +137,33 @@
 
     <div id="modal">
         <div id="modal-container">
+            <div class="close-button">
+                <button>
+                    X
+                </button>
+            </div>
+
             <div class="tools">
                 <h2 class="tools-title"> Tools</h2>
                 <div class="tool">
-                    <label for="block-size-input" id="block-size">Block Size</label>
-                    <input type="number" id="block-size-input">
+                    <label for="style-input" id="style">Style</label>
+                    <select class="select-input" id="style-input">
+                        <option value="0">
+                            Pixel
+                        </option>
+                        <option value="1">
+                            Cubic
+                        </option>
+                        <option value="2">
+                            Linear
+                        </option>
+                    </select>
                 </div>
-                <div class="tool" id="checkbox-div">
+                <div class="tool">
+                    <label for="block-size-input" id="block-size">Block Size</label>
+                    <input class="number-input" type="number" id="block-size-input">
+                </div>
+                <div class="tool checkbox-div">
                     <div>
                         <label for="gray-scale-input" id="gray-scale">Gray Scale</label>
                     </div>
@@ -151,9 +171,34 @@
                         <input type="checkbox" id="gray-scale-input">
                     </div>
                 </div>
-                <div class=""> </div>
-                <div></div>
-                <div></div>
+
+                <div class="tool checkbox-div">
+                    <div>
+                        <label for="kmeans-input" id="kmeans">Similar Colors</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="kmeans-input">
+                    </div>
+                </div>
+                <div class="tool">
+                    <label for="cluster-input" id="cluster">Color Number</label>
+                    <input class="number-input" type="number" id="cluster-input">
+                </div>
+                <div class="tool checkbox-div">
+                    <div>
+                        <label for="color-palette-input" id="color-palette">Color Palette</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="color-palette-input">
+                    </div>
+                </div>
+                <div class="tool">
+                    <div id="color-palette-select" class="palettes"></div>
+                </div>
+                <div class="download tool " id="download-section">
+                    <a href="">Download</a>
+                </div>
+
             </div>
             <div id="image-process" class="image-process">
                 <div id="image-result-container" class="image-result-container">
@@ -166,7 +211,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 My Website. All rights reserved.</p>
+            <p>&copy; 2023 Pixelf | All rights reserved.</p>
         </div>
     </footer>
 

@@ -129,7 +129,7 @@ html {
 }
 
 .cards-section {
-  background-color: #698269;
+  background-color: #FAECD6;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -179,20 +179,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover > .big-card:nth-child(1) {
+.card-group:hover>.big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover > .big-card:nth-child(2) {
+.card-group:hover>.big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover > .big-card:nth-child(3) {
+.card-group:hover>.big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover > .big-card:nth-child(4) {
+.card-group:hover>.big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -211,7 +211,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover > .little-card:nth-child(1) {
+.card-group:hover>.little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -220,20 +220,20 @@ html {
     */
 }
 
-.card-group:hover > .little-card:nth-child(3) {
+.card-group:hover>.little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(5) {
+.card-group:hover>.little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(7) {
+.card-group:hover>.little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
 .intro {
-  background-color: #f1dbbf;
+  background-color: #8e697a;
 }
 
 .features {
@@ -246,13 +246,16 @@ html {
 }
 
 .features .feature {
-  padding: 10px;
+  padding: 20px;
   margin: 0 auto;
+  width: 15rem;
+  height: 12rem;
 }
 
 .feature h1 {
   font-family: 'DotGothic16', sans-serif;
   font-size: 3rem;
+  color: #FAECD6;
 }
 
 .feature {
@@ -262,6 +265,7 @@ html {
 .feature i {
   cursor: pointer;
   font-size: 2.5rem;
+  color: #FAECD6;
 }
 
 .big-image {
@@ -289,6 +293,7 @@ footer {
   max-width: 800px;
   margin: 0 auto;
 }
+
 #modal {
   display: none;
 }
@@ -310,10 +315,26 @@ footer {
   border-radius: 1rem;
   width: calc(100% - 10rem);
   height: 100%;
-  background: #fff;
+  background-color: #443C68;
   display: flex;
   gap: 1rem;
   padding: 1rem;
+  position: relative;
+}
+
+/* TODO */
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: red;
+  padding: 0.2rem 0.6rem;
+}
+
+.close-button button {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
 }
 
 .tools {
@@ -322,6 +343,9 @@ footer {
   flex-direction: column;
   flex: 2;
   height: auto;
+  /* border-right: 3px solid black; */
+  background-color: #FAECD6;
+  border-radius: 0.8rem;
 }
 
 .tools-title {
@@ -333,37 +357,39 @@ footer {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  margin: 0 3rem;
+  margin: 0 2rem;
   padding: 1rem;
   font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
 }
 
-.tools .tool #block-size-input {
+.tools .tool .number-input {
   border-radius: 5px;
   width: 6rem;
   padding: 0 0.4rem;
   font-size: 1.4rem;
 }
 
-.tools .tool #block-size-input:focus {
+.tools .tool .number-input:focus {
   outline: none;
 }
 
-.tools .tool #block-size-input::-webkit-inner-spin-button,
-.tools .tool #block-size-input::-webkit-outer-spin-button {
+.tools .tool .number-input::-webkit-inner-spin-button,
+.tools .tool .number-input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.tools #checkbox-div {
+.tools .checkbox-div {
   display: flex;
 }
-.tools #checkbox-div div:nth-child(1) {
+
+.tools .checkbox-div div:nth-child(1) {
   flex: 6;
 }
-.tools #checkbox-div div:nth-child(2) {
+
+.tools .checkbox-div div:nth-child(2) {
   flex: 1;
 }
 
@@ -372,16 +398,97 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
 }
 
 .image-result-container {
   max-width: 48rem;
   max-height: 48rem;
-  background-color: brown;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .image-result {
   width: 60rem;
   height: 60rem;
+}
+
+/* #color-palette-select {} */
+
+.palettes {
+  display: block;
+  overflow-y: auto;
+  width: 100%;
+  height: 5rem;
+  overflow-x: hidden;
+  border: 2px solid black;
+}
+
+.palettes .palette {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.palettes .palette:hover {
+  opacity: 0.8;
+}
+
+.palettes .palette:last-child {
+  margin: 0;
+}
+
+
+.palettes .palette .color {
+  height: 1rem;
+  width: 1rem;
+  padding: 5px;
+  margin-right: 3px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 1px;
+}
+
+.selected {
+  background-color: #443C68;
+}
+
+.select-input {
+  border-radius: 5px;
+  width: 6rem;
+  padding: 0 0.4rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+#download-section {
+  padding: 0;
+  margin: auto;
+  justify-content: center;
+  width: 40%;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #443C68;
+}
+
+#download-section a {
+  text-align: center;
+  padding: 0.8rem;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #FAECD6;
+}
+
+#download-section:hover a {
+  background-color: #FAECD6;
+  color: #443C68;
+  transition: 0.1s;
 }
