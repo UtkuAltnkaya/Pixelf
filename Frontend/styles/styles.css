@@ -129,7 +129,7 @@ html {
 }
 
 .cards-section {
-  background-color: #FAECD6;
+  background-color: #faecd6;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -179,20 +179,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover>.big-card:nth-child(1) {
+.card-group:hover > .big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover>.big-card:nth-child(2) {
+.card-group:hover > .big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover>.big-card:nth-child(3) {
+.card-group:hover > .big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover>.big-card:nth-child(4) {
+.card-group:hover > .big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -211,7 +211,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover>.little-card:nth-child(1) {
+.card-group:hover > .little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -220,15 +220,15 @@ html {
     */
 }
 
-.card-group:hover>.little-card:nth-child(3) {
+.card-group:hover > .little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover>.little-card:nth-child(5) {
+.card-group:hover > .little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover>.little-card:nth-child(7) {
+.card-group:hover > .little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -255,7 +255,7 @@ html {
 .feature h1 {
   font-family: 'DotGothic16', sans-serif;
   font-size: 3rem;
-  color: #FAECD6;
+  color: #faecd6;
 }
 
 .feature {
@@ -265,7 +265,7 @@ html {
 .feature i {
   cursor: pointer;
   font-size: 2.5rem;
-  color: #FAECD6;
+  color: #faecd6;
 }
 
 .big-image {
@@ -315,26 +315,59 @@ footer {
   border-radius: 1rem;
   width: calc(100% - 10rem);
   height: 100%;
-  background-color: #443C68;
+  background-color: #443c68;
   display: flex;
   gap: 1rem;
   padding: 1rem;
   position: relative;
+  animation: open-animation 400ms ease-out;
 }
 
-/* TODO */
+@keyframes close-animation {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.99;
+  }
+}
+
+@keyframes open-animation {
+  from {
+    scale: 0.99;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
 .close-button {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: red;
-  padding: 0.2rem 0.6rem;
 }
 
 .close-button button {
-  width: 100%;
-  height: 100%;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 2.8rem;
+  height: 2.8rem;
+  color: #443c68;
+  background-color: #f1dbbf;
+  border: transparent;
+  border-radius: 50%;
+  transition: color 100ms;
+}
+
+.close-button button:hover {
+  color: #f1dbbf;
+  background-color: #443c68;
+  border: 1px solid #f1dbbf;
 }
 
 .tools {
@@ -343,8 +376,9 @@ footer {
   flex-direction: column;
   flex: 2;
   height: auto;
+  min-width: 30rem;
   /* border-right: 3px solid black; */
-  background-color: #FAECD6;
+  background-color: #faecd6;
   border-radius: 0.8rem;
 }
 
@@ -403,7 +437,8 @@ footer {
 .image-result-container {
   max-width: 48rem;
   max-height: 48rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .image-result {
@@ -411,20 +446,20 @@ footer {
   height: 60rem;
 }
 
-/* #color-palette-select {} */
-
 .palettes {
   display: block;
   overflow-y: auto;
   width: 100%;
-  height: 5rem;
+  height: 10rem;
   overflow-x: hidden;
   border: 2px solid black;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
 }
 
 .palettes .palette {
   display: flex;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   padding: 2px;
   margin-bottom: 0.5rem;
 }
@@ -437,11 +472,9 @@ footer {
   margin: 0;
 }
 
-
 .palettes .palette .color {
-  height: 1rem;
-  width: 1rem;
-  padding: 5px;
+  height: 1.5rem;
+  width: 1.5rem;
   margin-right: 3px;
 }
 
@@ -451,12 +484,12 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: gray;
-  border-radius: 1px;
+  background-color: #444;
+  border-radius: 0.1rem;
 }
 
 .selected {
-  background-color: #443C68;
+  background-color: #443c68;
 }
 
 .select-input {
@@ -475,7 +508,7 @@ footer {
   width: 40%;
   border: 1px solid black;
   border-radius: 3px;
-  background-color: #443C68;
+  background-color: #443c68;
 }
 
 #download-section a {
@@ -484,11 +517,11 @@ footer {
   width: 100%;
   height: 100%;
   text-decoration: none;
-  color: #FAECD6;
+  color: #faecd6;
 }
 
 #download-section:hover a {
-  background-color: #FAECD6;
-  color: #443C68;
+  background-color: #faecd6;
+  color: #443c68;
   transition: 0.1s;
 }
