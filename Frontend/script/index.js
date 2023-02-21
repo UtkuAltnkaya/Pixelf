@@ -112,7 +112,8 @@ const pressedEsc = (event) => {
 
 // Hacker effect
 const letters = "abcdefghijklmnopqrstuvwxyz"; // 26 letters
-document.getElementById("hacker-effect").onmouseover = event => {
+
+const hackerEffect = (event) => {
 
   let iterations = 0; // every time when mouse is over the element with hacker-effect id, iterations is set to 0
 
@@ -131,4 +132,12 @@ document.getElementById("hacker-effect").onmouseover = event => {
     iterations += 1 / 3; // To make it a little bit slower, we are increasing by 1/3
 
   }, 30);
+
 }
+
+document.getElementById("hacker-effect").onmouseover = hackerEffect;
+document.getElementById("hacker-effect").onload = hackerEffect;
+
+// document.body.onload = (event) => {
+//   hackerEffect(event);
+// };
