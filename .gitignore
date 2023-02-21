@@ -1,3 +1,4 @@
 .vscode
 ./**/.vscode
 image/build
+Backend/node_modules
