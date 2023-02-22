@@ -26,8 +26,9 @@ const imageProcess = async (req, res) => {
     console.log(`stdout: ${data}`);
   });
 
+  let isFailed = '';
   cppApp.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
+    isFailed = data;
   });
 
   const { code } = await new Promise((resolve, reject) => {
@@ -37,7 +38,15 @@ const imageProcess = async (req, res) => {
     });
   });
 
+  if (isFailed !== '') {
+    return res.status(500).json({ message: isFailed });
+  }
+
   res.status(200).json({ code });
 };
 
-module.exports = { imageProcess };
+const uploadImage = async (req, res) => {
+  res.status(200).json({ message: 200 });
+};
+
+module.exports = { imageProcess, uploadImage };

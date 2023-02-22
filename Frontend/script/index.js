@@ -24,7 +24,7 @@ openModal.addEventListener('click', (event) => {
     selectColorPalette();
   }
 
-  loadImage();
+  // loadImage();
   modalIsOpenOnce = true;
 });
 
@@ -44,8 +44,8 @@ const createColorPalette = () => {
   }
 };
 
-const loadImage = () => {
-  image.src = 'image/bg.png';
+const loadImage = (imageSrc) => {
+  image.src = imageSrc;
   if (image.src) {
     const imageWidth = image.width;
     const imageHeight = image.height;
@@ -73,8 +73,10 @@ const selectColorPalette = () => {
       palette[selectedColorPaletteIndex].classList.remove('selected');
       palette[i].classList.add('selected');
       selectedColorPaletteIndex = i;
+      data['-index'] = JSON.stringify(selectedColorPaletteIndex);
     });
   }
+  getColorPaletteIndex();
 };
 
 const closeModal = () => {
@@ -109,34 +111,33 @@ const pressedEsc = (event) => {
   }
 };
 
-
 // Hacker effect
-const letters = "abcdefghijklmnopqrstuvwxyz"; // 26 letters
+const letters = 'abcdefghijklmnopqrstuvwxyz'; // 26 letters
 
 const hackerEffect = (event) => {
-
   let iterations = 0; // every time when mouse is over the element with hacker-effect id, iterations is set to 0
 
   const interval = setInterval(() => {
-    event.target.innerText = event.target.innerText.split("").map((letter, index) => {
-      if (index < iterations) { // if index is smaller than iterations then we will return our original letter
-        return event.target.dataset.value[index];
-      }
+    event.target.innerText = event.target.innerText
+      .split('')
+      .map((letter, index) => {
+        if (index < iterations) {
+          // if index is smaller than iterations then we will return our original letter
+          return event.target.dataset.value[index];
+        }
 
-      return letters[Math.floor(Math.random() * 26)]; // else we will return a random letter
+        return letters[Math.floor(Math.random() * 26)]; // else we will return a random letter
+      })
+      .join('');
 
-    }).join("");
-
-    if (iterations >= event.target.dataset.value.length) clearInterval(interval); // To prevent the letters keep changing, we are clearing the interval 
+    if (iterations >= event.target.dataset.value.length) clearInterval(interval); // To prevent the letters keep changing, we are clearing the interval
 
     iterations += 1 / 3; // To make it a little bit slower, we are increasing by 1/3
-
   }, 30);
+};
 
-}
-
-document.getElementById("hacker-effect").onmouseover = hackerEffect;
-document.getElementById("hacker-effect").onload = hackerEffect;
+document.getElementById('hacker-effect').onmouseover = hackerEffect;
+document.getElementById('hacker-effect').onload = hackerEffect;
 
 // document.body.onload = (event) => {
 //   hackerEffect(event);
