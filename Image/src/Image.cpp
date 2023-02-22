@@ -3,8 +3,8 @@
 
 Image::Image(int size, char **args)
 {
-  this->getArg(size, args);
-  this->findPath(args[0]);
+  this->getArg(size, args); // getting environment variables into a map that includes string pairs named inputs example : -fileName foto-1.jpg -> pair
+  this->findPath(args[0]);  // "C:/Image Processing Project/Pixelf/Image/build/Release/Pixelf.exe" (sending this path to findPath() function) (might differ from PC to PC)
   this->src = cv::imread(this->path, cv::IMREAD_COLOR);
   if (this->src.empty())
   {
@@ -16,23 +16,23 @@ Image::~Image()
 {
 }
 
-void Image::findPath(char *path)
+void Image::findPath(char *path) // Generating relative path
 {
   this->path = path;
-  size_t location = this->path.find("build");
+  size_t location = this->path.find("build"); // "C:/Image Processing Project/Pixelf/Image/"
   std::string temp{""};
   for (size_t i = 0; i < location - 1; i++)
   {
     temp += path[i];
   }
-  this->path = temp + "\\" + this->inputs["-fileName"];
+  this->path = temp + "\\" + this->inputs["-fileName"]; // updating path with -fileName input which stands for the name of the input image
 }
 
 void Image::getArg(int size, char **args)
 {
-  for (size_t i{1}; i < size - 1; i += 2)
+  for (size_t i{1}; i < size - 1; i += 2) // size comes from the argc and argv from the main
   {
-    this->inputs.insert(std::pair<std::string, std::string>(args[i], args[i + 1]));
+    this->inputs.insert(std::pair<std::string, std::string>(args[i], args[i + 1])); // inserting the pairs into map, and getting all the env. variables. (Comes from JavaScript)
   }
 }
 
@@ -56,15 +56,16 @@ void Image::run()
 
 void Image::resizeImage(cv::Mat &resize)
 {
-  cv::Size size(this->src.cols / std::stoi(this->inputs["-blockSize"]), this->src.rows / std::stoi(this->inputs["-blockSize"]));
-  cv::resize(this->src, resize, size, 0, 0, std::stoi(this->inputs["-interIndex"])); // TODO INTER
+  cv::Size size(this->src.cols / std::stoi(this->inputs["-blockSize"]), this->src.rows / std::stoi(this->inputs["-blockSize"])); // adjusting the blockSize and resizing it
+  cv::resize(this->src, resize, size, 0, 0, std::stoi(this->inputs["-interIndex"]));
+  // cv::resize(input array,output array,x scaling,y scaling, style(CUBIC/LINEAR/PIXEL...))
 }
 
 void Image::convertToPixelArt()
 {
   cv::Mat resized;
   this->resizeImage(resized);
-  cv::resize(resized, this->result, this->src.size(), 0, 0, std::stoi(this->inputs["-interIndex"]));
+  cv::resize(resized, this->result, this->src.size(), 0, 0, std::stoi(this->inputs["-interIndex"])); // std::stoi() converts string to value , from source resized to the this->result image is saved.
 }
 
 void Image::kMeans()
@@ -74,7 +75,7 @@ void Image::kMeans()
   // Each sample represents a single pixel in the image and contains the RGB values for that pixel.
   // The resulting matrix samples has a number of rows equal to the total number of pixels in the image
   // and a number of columns equal to 3, representing the RGB values.
-  cv::Mat samples(this->result.rows * this->result.cols, 3, CV_32F);
+  cv::Mat samples(this->result.rows * this->result.cols, 3, CV_32F); // CV_32F -> 32 bits float
   for (int y{0}; y < this->result.rows; y++)
   {
     for (int x{0}; x < this->result.cols; x++)
@@ -121,18 +122,18 @@ void Image::addColorPalette()
     for (int x{0}; x < this->result.cols; x++)
     {
       cv::Vec3b pixel{this->result.at<cv::Vec3b>(y, x)};
-      cv::Scalar color(pixel[2], pixel[1], pixel[0]);
-      double minDistance{1e9};
+      cv::Scalar color(pixel[2], pixel[1], pixel[0]); // changing from BGR to RGB
+      double minDistance{1e9};                        // making minDistance maximum at the beginning to compare
       cv::Scalar closestColor;
       for (cv::Scalar paletteColor : colorPalette[std::stoi(this->inputs["-index"])])
-      {
-        double distance = cv::norm(color - paletteColor);
-        if (distance < minDistance)
+      {                                                   // paletteColor : colorPalette[3] for example (paletteColor is the color that is being iterated from 4'th palette from ColorPalette.hpp)
+        double distance = cv::norm(color - paletteColor); // Calculate the Euclidean distance between the current pixel's color and the current color in the palette with cv::norm();
+        if (distance < minDistance)                       // If the current distance is less than the minimum distance seen so far, update the minimum distance and closest color
         {
           minDistance = distance;
           closestColor = paletteColor;
         }
-      }
+      } // Set the pixel value to the closest color in the palette (in RGB format)
       this->result.at<cv::Vec3b>(y, x)[0] = closestColor[2];
       this->result.at<cv::Vec3b>(y, x)[1] = closestColor[1];
       this->result.at<cv::Vec3b>(y, x)[2] = closestColor[0];
@@ -141,5 +142,5 @@ void Image::addColorPalette()
 }
 void Image::addGrayScale()
 {
-  cv::cvtColor(this->result, this->result, cv::COLOR_BGR2GRAY);
+  cv::cvtColor(this->result, this->result, cv::COLOR_BGR2GRAY); // from result into result, color Blue green red to gray.
 }

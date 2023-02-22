@@ -1,9 +1,9 @@
 const modal = document.getElementById('modal');
 const openModal = document.getElementById('open-modal');
 const modalContainer = document.getElementById('modal-container');
+const closeModalButton = document.getElementById('close-modal');
 const resultImage = document.getElementById('image-result');
 const imageProcess = document.getElementById('image-result-container');
-const closeModalButton = document.getElementById('close-modal');
 
 let palette; // document.querySelectorAll('.palette');
 let selectedColorPaletteIndex = 0;
@@ -12,14 +12,14 @@ const image = new Image();
 
 openModal.addEventListener('click', (event) => {
   modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden'; // prevents scrolling down of the body
   modal.classList.add('modal');
   modalContainer.classList.add('modal-container');
 
   window.addEventListener('click', clickedOutSide); //To detect user clicked outside
   window.addEventListener('keydown', pressedEsc); //To detect user pressed esc
 
-  if (!modalIsOpenOnce) {
+  if (!modalIsOpenOnce) { // in order to prevent creating color palette every time
     createColorPalette();
     selectColorPalette();
   }
@@ -38,13 +38,14 @@ const createColorPalette = () => {
     let options = `<div class="palette">`;
     for (let j = 0; j < colors[i].length; j++) {
       options += `<div class="color" style="background-color:rgb(${colors[i][j][0]},${colors[i][j][1]},${colors[i][j][2]})"></div>`;
+      // adding each color div to our color palette | last elements [0] , [1] , [2] are representing the rgb values to give inside that color div.
     }
     options += `</div>`;
     palettes.innerHTML += options;
   }
 };
 
-const loadImage = (imageSrc) => {
+const loadImage = (imageSrc) => { // adjusting the width and the height of the image with mathematical calculations
   image.src = imageSrc;
   if (image.src) {
     const imageWidth = image.width;
@@ -70,13 +71,13 @@ const selectColorPalette = () => {
   palette = document.querySelectorAll('.palette');
   for (let i = 0; i < palette.length; i++) {
     palette[i].addEventListener('click', () => {
-      palette[selectedColorPaletteIndex].classList.remove('selected');
-      palette[i].classList.add('selected');
-      selectedColorPaletteIndex = i;
-      data['-index'] = JSON.stringify(selectedColorPaletteIndex);
+      palette[selectedColorPaletteIndex].classList.remove('selected'); // removing the selected class from the palette that is clicked before
+      palette[i].classList.add('selected'); // adding class to the new selected palette
+      selectedColorPaletteIndex = i; // keeping the index for the C++ file
+      data['-index'] = JSON.stringify(selectedColorPaletteIndex); // making integer a string
     });
   }
-  getColorPaletteIndex();
+  getColorPaletteIndex(); // every time when a color palette selected, and if ColorPalette marked as checked, then new index will be posted
 };
 
 const closeModal = () => {
@@ -87,7 +88,7 @@ const closeModal = () => {
   window.removeEventListener('click', clickedOutSide);
   window.removeEventListener('keydown', pressedEsc);
 
-  //Runs after closing animation finished
+  //Runs after closing animation finished & setting the values to default
   setTimeout(() => {
     modal.style.display = 'none';
     modal.classList.remove('modal');
@@ -139,6 +140,7 @@ const hackerEffect = (event) => {
 document.getElementById('hacker-effect').onmouseover = hackerEffect;
 document.getElementById('hacker-effect').onload = hackerEffect;
 
+// TODO
 // document.body.onload = (event) => {
 //   hackerEffect(event);
 // };
