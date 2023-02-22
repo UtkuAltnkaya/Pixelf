@@ -8,8 +8,10 @@ const colorPaletteSelectInput = document.getElementById('color-palette-select');
 const form = document.getElementById('form');
 const imageResultContainer = document.getElementById('image-process');
 
+
+// data object
 const data = {
-  '-fileName': 'b.jpg',
+  '-fileName': '',
   '-interIndex': '0',
   '-blockSize': '8',
   '-grayScale': 'false',
@@ -22,31 +24,31 @@ const data = {
 const getInput = () => {
   styleInput.addEventListener('change', () => {
     if (styleInput.value !== '') {
-      data['-interIndex'] = styleInput.value;
+      data['-interIndex'] = styleInput.value; // 0 , 1 , 2
     }
   });
   blockSizeInput.addEventListener('input', (event) => {
-    data['-blockSize'] = event.target.value;
+    data['-blockSize'] = event.target.value; // getting the blockSize value that is entered
   });
   grayScaleInput.addEventListener('change', (event) => {
-    data['-grayScale'] = JSON.stringify(event.currentTarget.checked);
+    data['-grayScale'] = JSON.stringify(event.currentTarget.checked); // checkbox
   });
   kMeansInput.addEventListener('change', (event) => {
-    data['-kmeans'] = JSON.stringify(event.currentTarget.checked);
+    data['-kmeans'] = JSON.stringify(event.currentTarget.checked); // checkbox
   });
   clusterInput.addEventListener('input', (event) => {
-    data['-cluster'] = event.target.value;
+    data['-cluster'] = event.target.value; // number input
   });
   colorPaletteInput.addEventListener('change', (event) => {
     data['-colorPalette'] = JSON.stringify(event.currentTarget.checked);
   });
-  form.addEventListener('change', () => {
+  form.addEventListener('change', () => { // if there is a change in the form, then post the inputs
     postInputs();
   });
 };
 getInput();
 
-const getColorPaletteIndex = () => {
+const getColorPaletteIndex = () => { // if color palette is activated and the element with id 'color-palette-select' is clicked, post inputs (real-time input change)
   colorPaletteSelectInput.addEventListener('click', () => {
     if (data['-colorPalette'] === 'true') {
       postInputs();
@@ -66,28 +68,29 @@ const postInputs = () => {
 
 imageResultContainer.addEventListener('dragover', (e) => {
   e.preventDefault();
+  // Prevent the default behavior of the dragover event (which is to not allow dropping)
   imageResultContainer.classList.add('dragover');
 });
 
 imageResultContainer.addEventListener('dragleave', (e) => {
+  // Prevent the default behavior of the dragleave event
   e.preventDefault();
   imageResultContainer.classList.remove('dragover');
 });
 
-imageResultContainer.addEventListener('drop', (e) => {
-  e.preventDefault();
+imageResultContainer.addEventListener('drop', (e) => { // Add a drop event listener to the imageResultContainer element
+  e.preventDefault(); // Prevent the default behavior of the drop event (which is to navigate to the dropped file)
   imageResultContainer.classList.remove('dragover');
-  const file = e.dataTransfer.files[0];
-  const reader = new FileReader();
+  const file = e.dataTransfer.files[0]; // Get the dropped file from the dataTransfer object
+  const reader = new FileReader(); // Create a FileReader object to read the contents of the dropped file (JavaScript feature)
   reader.addEventListener('load', () => {
-    // const url = URL.createObjectURL(file);
-    // console.log(url);
+    // Add a load event listener to the FileReader object, which will be triggered when the file has finished loading
     data['-fileName'] = file.name;
-    loadImage(reader.result);
+    loadImage(reader.result); // Call the loadImage function with the loaded file data
 
     const imageFormData = new FormData();
 
-    imageFormData.append('image', file);
+    imageFormData.append('image', file); // image is just the name
 
     fetch('http://localhost:3000/upload-image', {
       method: 'POST',

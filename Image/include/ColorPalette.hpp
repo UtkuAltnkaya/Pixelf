@@ -2,6 +2,8 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
+// Color palettes that are stored into a vector cv::Scalar(255,255,255) stands for white color
+// for example palette 1 is also a vector and holds cv::Scalar() typed elements.
 const std::vector<std::vector<cv::Scalar>> colorPalette = {
     // Palette 1: Ocean Sunset
     {

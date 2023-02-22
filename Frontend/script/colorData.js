@@ -1,3 +1,4 @@
+// colors array for the color palette with colors
 const colors = [
   [
     [47, 91, 132], // Dark blue
