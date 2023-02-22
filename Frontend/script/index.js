@@ -46,22 +46,19 @@ const createColorPalette = () => {
 
 const loadImage = (imageSrc) => {
   image.src = imageSrc;
-  if (image.src) {
+  image.onload= () =>{
+    image.classList.add("image-result");
     const imageWidth = image.width;
     const imageHeight = image.height;
 
     image.style.maxHeight = '100%';
     image.style.maxWidth = '100%';
+    
     image.style.height = `${100 - 100 * (1 - imageHeight / imageWidth)}%`;
     image.style.width = `${100 - 100 * (1 - imageWidth / imageHeight)}%`;
 
-    if (image.style.height >= 100) {
-      image.style.height = '100%';
-    }
-    if (image.style.width >= 100) {
-      image.style.width = '100%';
-    }
     image.style.borderRadius = '5px';
+    image.style.display = `block`;
     imageProcess.appendChild(image);
   }
 };
