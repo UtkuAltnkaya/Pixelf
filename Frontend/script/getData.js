@@ -6,8 +6,9 @@ const clusterInput = document.getElementById('cluster-input');
 const colorPaletteInput = document.getElementById('color-palette-input');
 const colorPaletteSelectInput = document.getElementById('color-palette-select');
 const form = document.getElementById('form');
-const imageResultContainer = document.getElementById('image-process');
+const imagePro = document.getElementById('image-process');
 const download = document.getElementById('download');
+const uploadAni = document.getElementById("upload-animation");
 
 // data object
 const data = {
@@ -90,6 +91,13 @@ imageResultContainer.addEventListener('dragleave', (e) => {
 imageResultContainer.addEventListener('drop', (e) => {
   // Add a drop event listener to the imageResultContainer element
   e.preventDefault(); // Prevent the default behavior of the drop event (which is to navigate to the dropped file)
+
+  if (imageResultContainer.classList.contains("dragover")) {
+    imageResultContainer.classList.remove("upload-image");
+    imageResultContainer.removeChild(uploadAni);
+  }
+
+
   imageResultContainer.classList.remove('dragover');
   const file = e.dataTransfer.files[0]; // Get the dropped file from the dataTransfer object
   const reader = new FileReader(); // Create a FileReader object to read the contents of the dropped file (JavaScript feature)

@@ -3,7 +3,8 @@ const openModal = document.getElementById('open-modal');
 const modalContainer = document.getElementById('modal-container');
 const closeModalButton = document.getElementById('close-modal');
 const resultImage = document.getElementById('image-result');
-const imageProcess = document.getElementById('image-result-container');
+const imageResultContainer = document.getElementById('image-result-container');
+const navToggle = document.getElementById("nav-toggle");
 
 let palette; // document.querySelectorAll('.palette');
 let selectedColorPaletteIndex = 0;
@@ -47,20 +48,20 @@ const createColorPalette = () => {
 
 const loadImage = (imageSrc) => { // adjusting the width and the height of the image with mathematical calculations
   image.src = imageSrc;
-  image.onload= () =>{
+  image.onload = () => {
     image.classList.add("image-result");
     const imageWidth = image.width;
     const imageHeight = image.height;
 
     image.style.maxHeight = '100%';
     image.style.maxWidth = '100%';
-    
+
     image.style.height = `${100 - 100 * (1 - imageHeight / imageWidth)}%`;
     image.style.width = `${100 - 100 * (1 - imageWidth / imageHeight)}%`;
 
     image.style.borderRadius = '5px';
     image.style.display = `block`;
-    imageProcess.appendChild(image);
+    imageResultContainer.appendChild(image);
   }
 };
 

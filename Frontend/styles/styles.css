@@ -69,32 +69,7 @@ html {
   font-family: 'DotGothic16', sans-serif;
 }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    height: auto;
-  }
 
-  .navbar-menu {
-    display: none;
-  }
-
-  .navbar-toggle {
-    display: block;
-    position: absolute;
-    right: 30px;
-    top: 20px;
-    cursor: pointer;
-  }
-
-  .navbar-toggle span {
-    display: block;
-    width: 30px;
-    height: 5px;
-    margin-bottom: 5px;
-    background-color: #fff;
-    border-radius: 3px;
-  }
-}
 
 .bg {
   justify-content: center;
@@ -179,20 +154,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover > .big-card:nth-child(1) {
+.card-group:hover>.big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover > .big-card:nth-child(2) {
+.card-group:hover>.big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover > .big-card:nth-child(3) {
+.card-group:hover>.big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover > .big-card:nth-child(4) {
+.card-group:hover>.big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -211,7 +186,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover > .little-card:nth-child(1) {
+.card-group:hover>.little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -220,15 +195,15 @@ html {
     */
 }
 
-.card-group:hover > .little-card:nth-child(3) {
+.card-group:hover>.little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(5) {
+.card-group:hover>.little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(7) {
+.card-group:hover>.little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -441,14 +416,14 @@ footer {
 .image-result-container {
   max-width: 40rem;
   max-height: 40rem;
- display: flex;
- justify-content: center;
-  
+  display: flex;
+  justify-content: center;
+
 }
 
 .image-result {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .palettes {
@@ -556,3 +531,65 @@ footer {
 #open-modal {
   cursor: pointer;
 }
+
+.upload-image {
+  background-color: #faecd6;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-animation {
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+@media screen and (max-width: 480px) {}
+
+
+@media screen and (max-width: 768px) {
+  .cards-section {
+    flex-direction: column;
+  }
+
+  .navbar {
+    height: auto;
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  .navbar-toggle span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .cards-section {
+    flex-direction: column;
+  }
+}
+
+
+
+@media screen and (max-width: 1200px) {}
