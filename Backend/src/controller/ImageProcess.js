@@ -55,4 +55,18 @@ const uploadImage = async (req, res) => {
   res.status(200).json({ message: 200 });
 };
 
-module.exports = { imageProcess, uploadImage }; // Export the imageProcess and uploadImage functions for use in other parts of the application
+const output = async (req, res) => {
+  const outputPath = path.join(__dirname + '..\\..\\..\\Output\\' + req.params.fileName);
+  const fileOptions = {
+    headers: {
+      'Content-Disposition': `attachment; filename=${req.params.fileName}`,
+    },
+  };
+  res.sendFile(outputPath, fileOptions, (err) => {
+    if (err) {
+      res.status(err.status).end();
+    }
+  });
+};
+
+module.exports = { imageProcess, uploadImage, output }; // Export the imageProcess and uploadImage functions for use in other parts of the application

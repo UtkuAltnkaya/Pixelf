@@ -7,7 +7,7 @@ const colorPaletteInput = document.getElementById('color-palette-input');
 const colorPaletteSelectInput = document.getElementById('color-palette-select');
 const form = document.getElementById('form');
 const imageResultContainer = document.getElementById('image-process');
-
+const download = document.getElementById('download');
 
 // data object
 const data = {
@@ -42,13 +42,15 @@ const getInput = () => {
   colorPaletteInput.addEventListener('change', (event) => {
     data['-colorPalette'] = JSON.stringify(event.currentTarget.checked);
   });
-  form.addEventListener('change', () => { // if there is a change in the form, then post the inputs
+  form.addEventListener('change', () => {
+    // if there is a change in the form, then post the inputs
     postInputs();
   });
 };
 getInput();
 
-const getColorPaletteIndex = () => { // if color palette is activated and the element with id 'color-palette-select' is clicked, post inputs (real-time input change)
+const getColorPaletteIndex = () => {
+  // if color palette is activated and the element with id 'color-palette-select' is clicked, post inputs (real-time input change)
   colorPaletteSelectInput.addEventListener('click', () => {
     if (data['-colorPalette'] === 'true') {
       postInputs();
@@ -64,7 +66,12 @@ const postInputs = () => {
     },
     body: JSON.stringify(data),
   }).then(() => {
-    loadImage("http://localhost:3000/output/" + data["-fileName"]);
+    const url = `http://localhost:3000/output/${data['-fileName']}`;
+    fetch(url).then((u) => {
+      loadImage(url);
+      download.download = data['-fileName'];
+      download.href = url;
+    });
   });
 };
 
@@ -80,7 +87,8 @@ imageResultContainer.addEventListener('dragleave', (e) => {
   imageResultContainer.classList.remove('dragover');
 });
 
-imageResultContainer.addEventListener('drop', (e) => { // Add a drop event listener to the imageResultContainer element
+imageResultContainer.addEventListener('drop', (e) => {
+  // Add a drop event listener to the imageResultContainer element
   e.preventDefault(); // Prevent the default behavior of the drop event (which is to navigate to the dropped file)
   imageResultContainer.classList.remove('dragover');
   const file = e.dataTransfer.files[0]; // Get the dropped file from the dataTransfer object
@@ -98,7 +106,6 @@ imageResultContainer.addEventListener('drop', (e) => { // Add a drop event liste
       method: 'POST',
       body: imageFormData,
     });
-
   });
   if (file) {
     reader.readAsDataURL(file);
