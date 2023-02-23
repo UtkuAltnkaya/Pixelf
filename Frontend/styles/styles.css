@@ -69,8 +69,6 @@ html {
   font-family: 'DotGothic16', sans-serif;
 }
 
-
-
 .bg {
   justify-content: center;
   position: relative;
@@ -154,20 +152,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover>.big-card:nth-child(1) {
+.card-group:hover > .big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover>.big-card:nth-child(2) {
+.card-group:hover > .big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover>.big-card:nth-child(3) {
+.card-group:hover > .big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover>.big-card:nth-child(4) {
+.card-group:hover > .big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -186,7 +184,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover>.little-card:nth-child(1) {
+.card-group:hover > .little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -195,15 +193,15 @@ html {
     */
 }
 
-.card-group:hover>.little-card:nth-child(3) {
+.card-group:hover > .little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover>.little-card:nth-child(5) {
+.card-group:hover > .little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover>.little-card:nth-child(7) {
+.card-group:hover > .little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -354,9 +352,9 @@ footer {
   flex: 2;
   height: 100%;
   min-width: 30rem;
-  /* border-right: 3px solid black; */
   background-color: #faecd6;
   border-radius: 0.8rem;
+  justify-content: space-evenly;
 }
 
 .tools-title {
@@ -411,14 +409,11 @@ footer {
   align-items: center;
 }
 
-
-
 .image-result-container {
   max-width: 40rem;
   max-height: 40rem;
   display: flex;
   justify-content: center;
-
 }
 
 .image-result {
@@ -483,7 +478,7 @@ footer {
 
 #download-section {
   padding: 0;
-  margin: auto;
+  margin: 0 auto 0.5rem auto;
   justify-content: center;
   width: 40%;
   border: 1px solid black;
@@ -548,9 +543,11 @@ footer {
   font-weight: bold;
 }
 
-
-@media screen and (max-width: 480px) {}
-
+@media screen and (max-width: 480px) {
+  .modal-container {
+    width: 100% !important;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .cards-section {
@@ -581,15 +578,60 @@ footer {
     background-color: #fff;
     border-radius: 3px;
   }
-}
 
+  .modal-container {
+    width: calc(100% - 4rem);
+  }
+
+  .image-process {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .modal-container #form {
+    width: 100% !important;
+  }
+
+  .modal-container .tools {
+    min-width: 15rem;
+    width: 20rem;
+  }
+
+  .modal-container .tools .tool {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+}
 
 @media screen and (max-width: 1024px) {
   .cards-section {
     flex-direction: column;
   }
+
+  .modal-container {
+    width: calc(100% - 8rem);
+  }
 }
 
+@media screen and (max-width: 1200px) {
+  .modal-container {
+    overflow: auto;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 
+  .image-process {
+    min-width: 35rem;
+  }
 
-@media screen and (max-width: 1200px) {}
+  .upload-image {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .modal-container #form {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+}

@@ -8,7 +8,7 @@ const colorPaletteSelectInput = document.getElementById('color-palette-select');
 const form = document.getElementById('form');
 const imagePro = document.getElementById('image-process');
 const download = document.getElementById('download');
-const uploadAni = document.getElementById("upload-animation");
+const uploadAni = document.getElementById('upload-animation');
 
 // data object
 const data = {
@@ -68,7 +68,7 @@ const postInputs = () => {
     body: JSON.stringify(data),
   }).then(() => {
     const url = `http://localhost:3000/output/${data['-fileName']}`;
-    fetch(url).then((u) => {
+    fetch(url).then(() => {
       loadImage(url);
       download.download = data['-fileName'];
       download.href = url;
@@ -92,11 +92,10 @@ imageResultContainer.addEventListener('drop', (e) => {
   // Add a drop event listener to the imageResultContainer element
   e.preventDefault(); // Prevent the default behavior of the drop event (which is to navigate to the dropped file)
 
-  if (imageResultContainer.classList.contains("dragover")) {
-    imageResultContainer.classList.remove("upload-image");
+  if (imageResultContainer.classList.contains('dragover')) {
+    imageResultContainer.classList.remove('upload-image');
     imageResultContainer.removeChild(uploadAni);
   }
-
 
   imageResultContainer.classList.remove('dragover');
   const file = e.dataTransfer.files[0]; // Get the dropped file from the dataTransfer object
