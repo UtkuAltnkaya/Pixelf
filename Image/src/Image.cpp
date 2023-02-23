@@ -25,7 +25,7 @@ void Image::findPath(char *path) // Generating relative path
   {
     temp += path[i];
   }
-  this->path = temp + "\\" + this->inputs["-fileName"]; // updating path with -fileName input which stands for the name of the input image
+  this->path = temp + "\\Uploaded\\" + this->inputs["-fileName"]; // updating path with -fileName input which stands for the name of the input image
 }
 
 void Image::getArg(int size, char **args)
@@ -51,7 +51,7 @@ void Image::run()
   {
     this->addGrayScale();
   }
-  cv::imwrite("output.jpg", this->result);
+  cv::imwrite("Output/" + this->inputs["-fileName"], this->result);
 }
 
 void Image::resizeImage(cv::Mat &resize)

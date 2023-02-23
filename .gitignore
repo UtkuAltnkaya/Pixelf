@@ -2,3 +2,5 @@
 ./**/.vscode
 image/build
 Backend/node_modules
+image/Uploaded
+Backend/Output

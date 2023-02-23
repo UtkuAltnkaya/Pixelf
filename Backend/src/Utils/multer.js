@@ -3,7 +3,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../../../Image/')); // determining the place where the dragged file will be placed in local machine.
+    cb(null, path.join(__dirname, '../../../Image/Uploaded/')); // determining the place where the dragged file will be placed in local machine.
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname); // getting the full filename with its type photo.jpg --> jpg in this case

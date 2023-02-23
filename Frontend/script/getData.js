@@ -63,7 +63,9 @@ const postInputs = () => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  }).then((data) => console.log(data));
+  }).then(() => {
+    loadImage("http://localhost:3000/output/" + data["-fileName"]);
+  });
 };
 
 imageResultContainer.addEventListener('dragover', (e) => {
@@ -96,6 +98,7 @@ imageResultContainer.addEventListener('drop', (e) => { // Add a drop event liste
       method: 'POST',
       body: imageFormData,
     });
+
   });
   if (file) {
     reader.readAsDataURL(file);
