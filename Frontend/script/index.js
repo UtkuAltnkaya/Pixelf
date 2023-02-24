@@ -4,7 +4,8 @@ const modalContainer = document.getElementById('modal-container');
 const closeModalButton = document.getElementById('close-modal');
 const resultImage = document.getElementById('image-result');
 const imageResultContainer = document.getElementById('image-result-container');
-const navToggle = document.getElementById("nav-toggle");
+const navToggle = document.getElementById('nav-toggle');
+const navbarContainer = document.getElementById('navbar-container');
 
 let palette; // document.querySelectorAll('.palette');
 let selectedColorPaletteIndex = 0;
@@ -20,7 +21,8 @@ openModal.addEventListener('click', (event) => {
   window.addEventListener('click', clickedOutSide); //To detect user clicked outside
   window.addEventListener('keydown', pressedEsc); //To detect user pressed esc
 
-  if (!modalIsOpenOnce) { // in order to prevent creating color palette every time
+  if (!modalIsOpenOnce) {
+    // in order to prevent creating color palette every time
     createColorPalette();
     selectColorPalette();
   }
@@ -46,10 +48,11 @@ const createColorPalette = () => {
   }
 };
 
-const loadImage = (imageSrc) => { // adjusting the width and the height of the image with mathematical calculations
+const loadImage = (imageSrc) => {
+  // adjusting the width and the height of the image with mathematical calculations
   image.src = imageSrc;
   image.onload = () => {
-    image.classList.add("image-result");
+    image.classList.add('image-result');
     const imageWidth = image.width;
     const imageHeight = image.height;
 
@@ -62,7 +65,7 @@ const loadImage = (imageSrc) => { // adjusting the width and the height of the i
     image.style.borderRadius = '5px';
     image.style.display = `block`;
     imageResultContainer.appendChild(image);
-  }
+  };
 };
 
 const selectColorPalette = () => {
@@ -142,3 +145,73 @@ document.getElementById('hacker-effect').onload = hackerEffect;
 // document.body.onload = (event) => {
 //   hackerEffect(event);
 // };
+
+//Navbar
+
+//Create Navbar menu and container
+const navbarMenu = document.createElement('div');
+const navbarMenuContainer = document.createElement('div');
+
+navToggle.addEventListener('click', () => {
+  createNavbarMenu();
+  document.body.style.overflow = 'hidden';
+  window.addEventListener('click', clickNavbarOutside); //To detect user clicked outside
+  window.addEventListener('keydown', pressEscNavbar);
+});
+
+const createNavbarMenu = () => {
+  //If navbar-menu not exist
+  if (!navbarMenu.id) {
+    navbarMenu.classList.add('nav-hidden-menu');
+    navbarMenu.id = 'nav-hidden-menu';
+    navbarMenuContainer.classList.add('nav-hidden-container');
+    navbarMenuContainer.id = 'nav-hidden-container';
+
+    //Create Navbar Items
+    navbarMenuContainer.append(createNavbarMenuItem('Images', '#images'));
+    navbarMenuContainer.append(createNavbarMenuItem('About', '#intro'));
+    navbarMenuContainer.append(createNavbarMenuItem('Github', '#'));
+    navbarMenuContainer.append(createNavbarMenuItem('Contact', '#contact-section'));
+    //add to navbar menu
+    navbarMenu.append(navbarMenuContainer);
+  }
+  //Add to container
+  navbarContainer.append(navbarMenu);
+};
+
+const createNavbarMenuItem = (text, href) => {
+  const item = document.createElement('a');
+  item.classList.add('nav-hidden-item');
+  item.innerText = text;
+  item.href = href;
+  item.addEventListener('click', () => {
+    closeNavbarMenu();
+  });
+  return item;
+};
+
+const closeNavbarMenu = () => {
+  navbarMenuContainer.style.animationName = 'close-nav-menu';
+  navbarMenuContainer.style.animationDuration = '200ms';
+
+  window.removeEventListener('click', clickNavbarOutside);
+  window.removeEventListener('keydown', pressEscNavbar);
+  setTimeout(() => {
+    navbarMenu.remove();
+    navbarMenuContainer.style.animationName = '';
+    navbarMenuContainer.style.animationDuration = '';
+    document.body.style.overflow = '';
+  }, 100);
+};
+
+const clickNavbarOutside = (event) => {
+  if (event.target.id === 'nav-hidden-menu') {
+    closeNavbarMenu();
+  }
+};
+
+const pressEscNavbar = (event) => {
+  if (event.key === 'Escape') {
+    closeNavbarMenu();
+  }
+};
