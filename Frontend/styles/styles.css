@@ -177,20 +177,20 @@ html {
     transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover > .big-card:nth-child(1) {
+.card-group:hover>.big-card:nth-child(1) {
     transform: translate(-75%, 16%) rotate(-24deg);
     /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover > .big-card:nth-child(2) {
+.card-group:hover>.big-card:nth-child(2) {
     transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover > .big-card:nth-child(3) {
+.card-group:hover>.big-card:nth-child(3) {
     transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover > .big-card:nth-child(4) {
+.card-group:hover>.big-card:nth-child(4) {
     transform: translate(75%, 16%) rotate(24deg);
     /*Must do the opposite of the first card */
 }
@@ -209,7 +209,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover > .little-card:nth-child(1) {
+.card-group:hover>.little-card:nth-child(1) {
     transform: translate(200%, -160%) rotate(-15deg);
     /*
         background-color: red;
@@ -218,15 +218,15 @@ html {
     */
 }
 
-.card-group:hover > .little-card:nth-child(3) {
+.card-group:hover>.little-card:nth-child(3) {
     transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(5) {
+.card-group:hover>.little-card:nth-child(5) {
     transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(7) {
+.card-group:hover>.little-card:nth-child(7) {
     transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -253,6 +253,7 @@ html {
     font-size: 2.7rem;
     padding-bottom: 3rem;
 }
+
 .how-to-middle {
     display: flex;
     gap: 3rem;
@@ -260,14 +261,17 @@ html {
     padding-bottom: 2rem;
     padding-bottom: 3rem;
 }
+
 .how-to-gif {
     width: 90%;
     background-color: red;
     flex: 3;
 }
+
 .how-to-texts-container {
     flex: 5;
 }
+
 .how-to-texts {
     font-family: "DotGothic16", sans-serif;
     font-size: 1.5rem;
@@ -302,6 +306,7 @@ html {
     font-size: 2.5rem;
     color: #faecd6;
 }
+
 .feature:hover {
     background-color: #443c68;
     transition: 0.1s;
@@ -587,4 +592,71 @@ footer {
     color: black;
     font-size: 2rem;
     font-weight: bold;
+}
+
+
+#contributor-title {
+    text-align: center;
+    background-color: #faecd6;
+    font-size: 3rem;
+}
+
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #faecd6;
+    height: 40vh;
+    padding: auto;
+}
+
+.contact .profile-info .photo img {
+    width: 8rem;
+    height: 8rem;
+    padding: 0.5rem;
+    margin: auto;
+    cursor: pointer;
+}
+
+.contact .profile-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact .profile-info .contact-info {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact-icons {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+}
+
+.contact-icon {
+    padding: 1rem;
+    margin: auto;
+}
+
+.contact-link {
+    text-decoration: none;
+}
+
+.github {
+    color: purple;
+}
+
+.linkedin {
+    color: #0077b5;
+}
+
+.mail {
+    color: black;
 }

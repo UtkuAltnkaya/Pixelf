@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
 
 @media screen and (max-width: 480px) {
+
+    .cards-section {
+        flex-direction: column;
+    }
+
     .navbar {
         height: auto;
     }
@@ -46,9 +51,11 @@
         transform: translate(-50%, 400%);
         padding: 0.5rem;
     }
+
     .how-to-middle {
         display: block;
     }
+
     .how-to-gif {
         margin: 0 auto;
         height: 18rem;
@@ -68,6 +75,7 @@
         justify-content: center;
         height: 100%;
     }
+
     .modal-container .tools {
         min-width: 15rem;
         width: 20rem;
@@ -139,9 +147,11 @@
         transform: translate(-50%, 400%);
         padding: 0.5rem;
     }
+
     .how-to-middle {
         display: block;
     }
+
     .how-to-gif {
         margin: 0 auto;
         height: 24rem;
@@ -161,6 +171,7 @@
         justify-content: center;
         height: 100%;
     }
+
     .modal-container .tools {
         min-width: 15rem;
         width: 20rem;
@@ -183,6 +194,12 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .cards-section {
+        flex-direction: column;
+    }
+
+
     .navbar {
         height: auto;
     }
@@ -236,6 +253,7 @@
     .how-to-middle {
         display: block;
     }
+
     .how-to-gif {
         margin: 0 auto;
         height: 24rem;
@@ -266,6 +284,17 @@
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1200px) {
+
+    .cards-section {
+        flex-direction: column;
+    }
+
+    .card-group {
+        aspect-ratio: 3/7;
+        width: 20vmin;
+    }
+
+
     .big-title {
         font-size: 6rem;
         top: 50%;
@@ -292,6 +321,7 @@
         height: 32rem;
         width: auto;
     }
+
     .modal-container {
         overflow: auto;
         flex-direction: column-reverse;
