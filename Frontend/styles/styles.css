@@ -70,8 +70,11 @@ html {
 }
 
 .bg {
-  justify-content: center;
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
 }
 
@@ -85,7 +88,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-50%, -100%);
   color: floralwhite;
   font-size: 6rem;
   font-family: 'DotGothic16', sans-serif;
@@ -100,6 +103,29 @@ html {
   font-family: 'DotGothic16', sans-serif;
   color: floralwhite;
 }
+
+#get-started-btn {
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 210%);
+  font-size: 1.5rem;
+  font-family: 'DotGothic16', sans-serif;
+  color: #443c68;
+  border: 1px solid black;
+  padding: 1rem;
+  background-color: floralwhite;
+  border-radius: 0.6rem;
+  font-weight: bold;
+}
+
+#get-started-btn:hover {
+  background-color: #443c68;
+  color: floralwhite;
+  transition: 0.3s;
+}
+
 
 .cards-section {
   background-color: #faecd6;
@@ -152,20 +178,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover > .big-card:nth-child(1) {
+.card-group:hover>.big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover > .big-card:nth-child(2) {
+.card-group:hover>.big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover > .big-card:nth-child(3) {
+.card-group:hover>.big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover > .big-card:nth-child(4) {
+.card-group:hover>.big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -184,7 +210,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover > .little-card:nth-child(1) {
+.card-group:hover>.little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -193,15 +219,15 @@ html {
     */
 }
 
-.card-group:hover > .little-card:nth-child(3) {
+.card-group:hover>.little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(5) {
+.card-group:hover>.little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(7) {
+.card-group:hover>.little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -501,27 +527,6 @@ footer {
   transition: 0.1s;
 }
 
-#get-started-btn {
-  text-decoration: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 210%);
-  font-size: 1.5rem;
-  font-family: 'DotGothic16', sans-serif;
-  color: #443c68;
-  border: 1px solid black;
-  padding: 1rem;
-  background-color: floralwhite;
-  border-radius: 0.6rem;
-  font-weight: bold;
-}
-
-#get-started-btn:hover {
-  background-color: #443c68;
-  color: floralwhite;
-  transition: 0.3s;
-}
 
 #open-modal {
   cursor: pointer;
@@ -541,97 +546,4 @@ footer {
   color: black;
   font-size: 2rem;
   font-weight: bold;
-}
-
-@media screen and (max-width: 480px) {
-  .modal-container {
-    width: 100% !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .cards-section {
-    flex-direction: column;
-  }
-
-  .navbar {
-    height: auto;
-  }
-
-  .navbar-menu {
-    display: none;
-  }
-
-  .navbar-toggle {
-    display: block;
-    position: absolute;
-    right: 30px;
-    top: 20px;
-    cursor: pointer;
-  }
-
-  .navbar-toggle span {
-    display: block;
-    width: 30px;
-    height: 5px;
-    margin-bottom: 5px;
-    background-color: #fff;
-    border-radius: 3px;
-  }
-
-  .modal-container {
-    width: calc(100% - 4rem);
-  }
-
-  .image-process {
-    min-width: 0 !important;
-    width: 100% !important;
-  }
-
-  .modal-container #form {
-    width: 100% !important;
-  }
-
-  .modal-container .tools {
-    min-width: 15rem;
-    width: 20rem;
-  }
-
-  .modal-container .tools .tool {
-    font-size: 1rem;
-    margin: 0 1rem;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .cards-section {
-    flex-direction: column;
-  }
-
-  .modal-container {
-    width: calc(100% - 8rem);
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .modal-container {
-    overflow: auto;
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-
-  .image-process {
-    min-width: 35rem;
-  }
-
-  .upload-image {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .modal-container #form {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-  }
 }

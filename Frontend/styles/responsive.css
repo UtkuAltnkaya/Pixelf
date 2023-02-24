@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+
+@media screen and (max-width: 480px) {
+    .modal-container {
+        width: 100% !important;
+    }
+
+    .navbar {
+        height: auto;
+    }
+
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .navbar-toggle span {
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin-bottom: 5px;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+
+    .big-title {
+        font-size: 6rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    .little-title {
+        font-size: 1.2rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-45%, 60%);
+    }
+
+    #get-started-btn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 400%);
+        padding: 0.5rem;
+    }
+
+}
+
+@media screen and (min-width:480px) and (max-width: 768px) {
+    .cards-section {
+        flex-direction: column;
+    }
+
+    .modal-container {
+        width: calc(100% - 4rem);
+    }
+
+    .image-process {
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    .modal-container #form {
+        width: 100% !important;
+    }
+
+    .modal-container .tools {
+        min-width: 15rem;
+        width: 20rem;
+    }
+
+    .modal-container .tools .tool {
+        font-size: 1rem;
+        margin: 0 1rem;
+    }
+
+
+    .navbar {
+        height: auto;
+    }
+
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .navbar-toggle span {
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin-bottom: 5px;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+
+    .big-title {
+        font-size: 6rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    .little-title {
+        font-size: 1.4rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-45%, 60%);
+    }
+
+    #get-started-btn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 400%);
+        padding: 0.5rem;
+    }
+
+}
+
+@media screen and (min-width:768px) and (max-width: 1024px) {
+
+    .navbar {
+        height: auto;
+    }
+
+
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    .navbar-toggle span {
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin-bottom: 5px;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+
+    .big-title {
+        font-size: 6rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    .little-title {
+        font-size: 1.3rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 150%);
+    }
+
+    #get-started-btn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 300%);
+        padding: 1rem;
+    }
+
+
+    .cards-section {
+        flex-direction: column;
+    }
+
+    .modal-container {
+        width: calc(100% - 8rem);
+    }
+
+
+}
+
+@media screen and (min-width:1024px) and (max-width: 1200px) {
+
+    .big-title {
+        font-size: 6rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+
+    .little-title {
+        font-size: 1.4rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 150%);
+    }
+
+    #get-started-btn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 220%);
+        padding: 1rem;
+    }
+
+
+
+    .modal-container {
+        overflow: auto;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .image-process {
+        min-width: 35rem;
+    }
+
+    .upload-image {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .modal-container #form {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+    }
+}
