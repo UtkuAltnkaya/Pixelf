@@ -101,20 +101,50 @@ imageResultContainer.addEventListener('drop', (e) => {
   const file = e.dataTransfer.files[0]; // Get the dropped file from the dataTransfer object
   const reader = new FileReader(); // Create a FileReader object to read the contents of the dropped file (JavaScript feature)
   reader.addEventListener('load', () => {
-    // Add a load event listener to the FileReader object, which will be triggered when the file has finished loading
-    data['-fileName'] = file.name;
-    loadImage(reader.result); // Call the loadImage function with the loaded file data
-
-    const imageFormData = new FormData();
-
-    imageFormData.append('image', file); // image is just the name
-
-    fetch('http://localhost:3000/upload-image', {
-      method: 'POST',
-      body: imageFormData,
-    });
+    UploadImage(file, reader.result);
   });
   if (file) {
     reader.readAsDataURL(file);
   }
+});
+
+
+const UploadImage = (file, imgSource) => {
+  // Add a load event listener to the FileReader object, which will be triggered when the file has finished loading
+  data['-fileName'] = file.name;
+  loadImage(imgSource); // Call the loadImage function with the loaded file data
+
+  const imageFormData = new FormData();
+
+  imageFormData.append('image', file); // image is just the name
+
+  fetch('http://localhost:3000/upload-image', {
+    method: 'POST',
+    body: imageFormData,
+  });
+}
+
+
+const fileInput = document.createElement("input");
+
+fileInput.type = "file";
+fileInput.style.display = "none";
+
+uploadAni.addEventListener("click", function () {
+  fileInput.click();
+});
+
+fileInput.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  const reader = new FileReader();
+
+  reader.addEventListener('load', () => {
+    // Create a new image element with the loaded image data
+    UploadImage(file, reader.result);
+    imageResultContainer.classList.remove('upload-image');
+    imageResultContainer.removeChild(uploadAni);
+    // Append the image to the image container
+  });
+
+  reader.readAsDataURL(file);
 });

@@ -38,6 +38,10 @@
         width: 12rem;
     }
 
+    .navbar-close-btn {
+        width: 84%;
+    }
+
     .big-title {
         font-size: 6rem;
         top: 50%;
@@ -101,6 +105,12 @@
     .upload-image {
         width: 100%;
         padding: 1rem;
+    }
+
+    .upload-animation {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: row-reverse;
     }
 
     /* Contact */
@@ -222,6 +232,13 @@
         padding: 1rem;
     }
 
+    .upload-animation {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: row-reverse;
+    }
+
+
     /* Contact */
 
     #contributor-title {
@@ -326,6 +343,12 @@
         padding: 1rem;
     }
 
+    .upload-animation {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: row-reverse;
+    }
+
     .modal-container #form {
         display: flex;
         justify-content: center;
@@ -383,6 +406,12 @@
     .upload-image {
         width: 100%;
         padding: 1rem;
+    }
+
+    .upload-animation {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: row-reverse;
     }
 
     .modal-container #form {

@@ -151,6 +151,8 @@ document.getElementById('hacker-effect').onload = hackerEffect;
 //Create Navbar menu and container
 const navbarMenu = document.createElement('div');
 const navbarMenuContainer = document.createElement('div');
+const navbarMenuItemsDiv = document.createElement('div');
+const navbarMenuCloseDiv = document.createElement('div');
 
 navToggle.addEventListener('click', () => {
   createNavbarMenu();
@@ -166,13 +168,17 @@ const createNavbarMenu = () => {
     navbarMenu.id = 'nav-hidden-menu';
     navbarMenuContainer.classList.add('nav-hidden-container');
     navbarMenuContainer.id = 'nav-hidden-container';
+    navbarMenuCloseDiv.classList.add('navbar-close-btn');
+    navbarMenuCloseDiv.innerText = 'X';
 
     //Create Navbar Items
-    navbarMenuContainer.append(createNavbarMenuItem('Images', '#images'));
-    navbarMenuContainer.append(createNavbarMenuItem('About', '#intro'));
-    navbarMenuContainer.append(createNavbarMenuItem('Github', '#'));
-    navbarMenuContainer.append(createNavbarMenuItem('Contact', '#contact-section'));
+    navbarMenuItemsDiv.append(createNavbarMenuItem('Images', '#images'));
+    navbarMenuItemsDiv.append(createNavbarMenuItem('About', '#intro'));
+    navbarMenuItemsDiv.append(createNavbarMenuItem('Github', '#'));
+    navbarMenuItemsDiv.append(createNavbarMenuItem('Contact', '#contact-section'));
     //add to navbar menu
+    navbarMenuContainer.append(navbarMenuItemsDiv);
+    navbarMenuContainer.append(navbarMenuCloseDiv);
     navbarMenu.append(navbarMenuContainer);
   }
   //Add to container
@@ -215,3 +221,5 @@ const pressEscNavbar = (event) => {
     closeNavbarMenu();
   }
 };
+
+navbarMenuCloseDiv.addEventListener('click', closeNavbarMenu);

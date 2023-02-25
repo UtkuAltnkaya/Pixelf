@@ -89,17 +89,21 @@ html {
   position: absolute;
   z-index: 3;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   right: 0;
   height: 100vh;
   width: 20rem;
-  background-color: #8e697a;
+  /* background-color: #8e697a; */
+  background-color: #faecd6;
   animation: open-nav-menu 200ms ease-in;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .nav-hidden-item {
-  border-bottom: 1px solid black;
+  border: 2px solid #8e697a;
   padding: 1rem;
   color: #fff;
   text-align: center;
@@ -107,13 +111,47 @@ html {
   font-size: 1.5rem;
   display: block;
   cursor: pointer;
+  background-color: #8e697a;
+  margin: 1rem;
+  border-radius: 0.7rem;
+}
+
+.nav-hidden-item:hover {
+  border: 2px solid #8e697a;
+  background-color: #faecd6;
+  color: #8e697a;
+  transition: 0.1s;
+}
+
+.navbar-close-btn {
+  text-align: center;
+  font-size: 1.5rem;
+  width: 90%;
+  padding: 1rem;
+  background-color: #443c68;
+  color: #faecd6;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 0.3rem;
+  border: 2px solid #443c68;
+}
+
+.navbar-close-btn:hover {
+  background-color: #faecd6;
+  border: 2px solid #443c68;
+  color: #443c68;
+  transition: 0.1s;
 }
 
 @keyframes open-nav-menu {
   from {
     right: -500px;
+    opacity: 0;
   }
+
   to {
+    opacity: 1;
     right: 0;
   }
 }
@@ -121,9 +159,12 @@ html {
 @keyframes close-nav-menu {
   from {
     right: 0;
+    opacity: 1;
   }
+
   to {
     right: -500px;
+    opacity: 0;
   }
 }
 
@@ -235,20 +276,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover > .big-card:nth-child(1) {
+.card-group:hover>.big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover > .big-card:nth-child(2) {
+.card-group:hover>.big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover > .big-card:nth-child(3) {
+.card-group:hover>.big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover > .big-card:nth-child(4) {
+.card-group:hover>.big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -267,7 +308,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover > .little-card:nth-child(1) {
+.card-group:hover>.little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -276,15 +317,15 @@ html {
     */
 }
 
-.card-group:hover > .little-card:nth-child(3) {
+.card-group:hover>.little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(5) {
+.card-group:hover>.little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(7) {
+.card-group:hover>.little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -644,9 +685,23 @@ footer {
 }
 
 .upload-animation {
-  color: black;
+  background-color: #443c68;
+  color: #faecd6;
   font-size: 2rem;
   font-weight: bold;
+  border: 2px solid #333;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.upload-animation:hover {
+  background-color: #faecd6;
+  color: #443c68;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  transition: 0.1s;
 }
 
 #contributor-title {
