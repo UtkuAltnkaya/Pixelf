@@ -1,422 +1,450 @@
-@import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 @media screen and (max-width: 480px) {
-    .cards-section {
-        flex-direction: column;
-    }
+  .cards-section {
+    flex-direction: column;
+  }
 
-    .navbar {
-        height: auto;
-    }
+  .navbar {
+    height: auto;
+  }
 
-    .navbar-menu {
-        display: none;
-    }
+  .navbar-menu {
+    display: none;
+  }
 
-    .navbar-toggle {
-        display: block;
-        position: absolute;
-        right: 30px;
-        top: 20px;
-        cursor: pointer;
-    }
+  .navbar-toggle {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+  }
 
-    .navbar-toggle span {
-        display: block;
-        width: 30px;
-        height: 5px;
-        margin-bottom: 5px;
-        background-color: #fff;
-        border-radius: 3px;
-    }
+  .navbar-toggle span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
 
-    .nav-hidden-menu {
-        display: block;
-    }
+  .nav-hidden-menu {
+    display: block;
+  }
 
-    .nav-hidden-container {
-        width: 12rem;
-    }
+  .nav-hidden-container {
+    width: 12rem;
+  }
 
-    .navbar-close-btn {
-        width: 84%;
-    }
+  .navbar-close-btn {
+    width: 84%;
+  }
 
-    .big-title {
-        font-size: 6rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -100%);
-    }
+  .big-title {
+    font-size: 6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
 
-    .little-title {
-        font-size: 1.2rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-45%, 60%);
-    }
+  .little-title {
+    font-size: 1.2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, 60%);
+  }
 
-    #get-started-btn {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 400%);
-        padding: 0.5rem;
-    }
+  #get-started-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 400%);
+    padding: 0.5rem;
+  }
 
-    .how-to-middle {
-        display: block;
-    }
+  .how-to-middle {
+    display: block;
+  }
 
-    .how-to-gif {
-        margin: 0 auto;
-        height: 18rem;
-        width: 18rem;
-    }
+  .how-to-gif {
+    margin: 0 auto;
+    height: 18rem;
+    width: 18rem;
+  }
 
-    .modal-container {
-        width: 100% !important;
-        overflow: auto;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
+  .modal-container {
+    width: 100% !important;
+    overflow: auto;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 
-    .modal-container #form {
-        display: flex;
-        width: 100% !important;
-        justify-content: center;
-        height: 100%;
-    }
+  .modal-container #form {
+    display: flex;
+    width: 100% !important;
+    justify-content: center;
+    height: 100%;
+  }
 
-    .modal-container .tools {
-        min-width: 15rem;
-        width: 20rem;
-    }
+  .modal-container .tools {
+    min-width: 15rem;
+    width: 20rem;
+  }
 
-    .modal-container .tools .tool {
-        font-size: 1rem;
-        margin: 0 1rem;
-    }
+  .modal-container .tools .tool {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
 
-    .image-process {
-        min-width: 0 !important;
-        width: 100% !important;
-    }
+  .image-process {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
 
-    .upload-image {
-        width: 100%;
-        padding: 1rem;
-    }
+  .upload-image {
+    width: 100%;
+    padding: 1rem;
+  }
 
-    .upload-animation {
-        display: flex;
-        gap: 1.5rem;
-        flex-direction: row-reverse;
-    }
+  .upload-animation {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: row-reverse;
+  }
 
-    /* Contact */
+  /* Contact */
 
-    .contact {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        font-size: 1rem;
-        gap: 2rem;
-    }
+  .contact {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    font-size: 1rem;
+    gap: 2rem;
+  }
 
-    #contributor-title {
-        font-size: 2rem;
-    }
+  #contributor-title {
+    font-size: 2rem;
+  }
 
-    .profile-info {
-        flex-direction: row !important;
-        border-bottom: 1px solid black;
+  .profile-info {
+    flex-direction: row !important;
+    border-bottom: 1px solid black;
+  }
+
+  .toast-message {
+    right: 2.5rem;
+    width: 20rem;
+
+    animation: open-toast-message 1s ease-in-out;
+  }
+
+  @keyframes open-toast-message {
+    from {
+      right: -400px;
+      opacity: 0;
     }
+    to {
+      opacity: 1;
+      right: 2.5rem;
+    }
+  }
+
+  @keyframes close-toast-message {
+    from {
+      opacity: 1;
+      right: 2.5rem;
+    }
+    to {
+      right: -400px;
+      opacity: 0;
+    }
+  }
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
-    .cards-section {
-        flex-direction: column;
-    }
+  .cards-section {
+    flex-direction: column;
+  }
 
-    .navbar {
-        height: auto;
-    }
+  .navbar {
+    height: auto;
+  }
 
-    .navbar-menu {
-        display: none;
-    }
+  .navbar-menu {
+    display: none;
+  }
 
-    .navbar-toggle {
-        display: block;
-        position: absolute;
-        right: 30px;
-        top: 20px;
-        cursor: pointer;
-    }
+  .navbar-toggle {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+  }
 
-    .navbar-toggle span {
-        display: block;
-        width: 30px;
-        height: 5px;
-        margin-bottom: 5px;
-        background-color: #fff;
-        border-radius: 3px;
-    }
+  .navbar-toggle span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
 
-    .nav-hidden-menu {
-        display: block;
-    }
+  .nav-hidden-menu {
+    display: block;
+  }
 
-    .big-title {
-        font-size: 6rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -100%);
-    }
+  .big-title {
+    font-size: 6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
 
-    .little-title {
-        font-size: 1.4rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-45%, 60%);
-    }
+  .little-title {
+    font-size: 1.4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, 60%);
+  }
 
-    #get-started-btn {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 400%);
-        padding: 0.5rem;
-    }
+  #get-started-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 400%);
+    padding: 0.5rem;
+  }
 
-    .how-to-middle {
-        display: block;
-    }
+  .how-to-middle {
+    display: block;
+  }
 
-    .how-to-gif {
-        margin: 0 auto;
-        height: 24rem;
-        width: 90%;
-    }
+  .how-to-gif {
+    margin: 0 auto;
+    height: 24rem;
+    width: 90%;
+  }
 
-    .modal-container {
-        width: calc(100% - 4rem);
-        overflow: auto;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
+  .modal-container {
+    width: calc(100% - 4rem);
+    overflow: auto;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 
-    .modal-container #form {
-        display: flex;
-        width: 100% !important;
-        justify-content: center;
-        height: 100%;
-    }
+  .modal-container #form {
+    display: flex;
+    width: 100% !important;
+    justify-content: center;
+    height: 100%;
+  }
 
-    .modal-container .tools {
-        min-width: 15rem;
-        width: 20rem;
-    }
+  .modal-container .tools {
+    min-width: 15rem;
+    width: 20rem;
+  }
 
-    .modal-container .tools .tool {
-        font-size: 1rem;
-        margin: 0 1rem;
-    }
+  .modal-container .tools .tool {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
 
-    .image-process {
-        min-width: 0 !important;
-        width: 100% !important;
-    }
+  .image-process {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
 
-    .upload-image {
-        width: 100%;
-        padding: 1rem;
-    }
+  .upload-image {
+    width: 100%;
+    padding: 1rem;
+  }
 
-    .upload-animation {
-        display: flex;
-        gap: 1.5rem;
-        flex-direction: row-reverse;
-    }
+  .upload-animation {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: row-reverse;
+  }
 
+  /* Contact */
 
-    /* Contact */
+  #contributor-title {
+    font-size: 2.5rem;
+  }
 
-    #contributor-title {
-        font-size: 2.5rem;
-    }
+  .contact {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
 
-    .contact {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        gap: 1rem;
-    }
-
-    .profile-info {
-        flex-direction: row;
-        border-bottom: 1px solid black;
-    }
+  .profile-info {
+    flex-direction: row;
+    border-bottom: 1px solid black;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .cards-section {
-        flex-direction: column;
-    }
+  .cards-section {
+    flex-direction: column;
+  }
 
-    .navbar {
-        height: auto;
-    }
+  .navbar {
+    height: auto;
+  }
 
-    .navbar-menu {
-        display: none;
-    }
+  .navbar-menu {
+    display: none;
+  }
 
-    .navbar-toggle {
-        display: block;
-        position: absolute;
-        right: 30px;
-        top: 20px;
-        cursor: pointer;
-    }
+  .navbar-toggle {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+  }
 
-    .nav-hidden-menu {
-        display: block;
-    }
+  .nav-hidden-menu {
+    display: block;
+  }
 
-    .navbar-toggle span {
-        display: block;
-        width: 30px;
-        height: 5px;
-        margin-bottom: 5px;
-        background-color: #fff;
-        border-radius: 3px;
-    }
+  .navbar-toggle span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
 
-    .big-title {
-        font-size: 6rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -100%);
-    }
+  .big-title {
+    font-size: 6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
 
-    .little-title {
-        font-size: 1.3rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 150%);
-    }
+  .little-title {
+    font-size: 1.3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+  }
 
-    #get-started-btn {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 300%);
-        padding: 1rem;
-    }
+  #get-started-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 300%);
+    padding: 1rem;
+  }
 
-    .cards-section {
-        flex-direction: column;
-    }
+  .cards-section {
+    flex-direction: column;
+  }
 
-    .how-to-middle {
-        display: block;
-    }
+  .how-to-middle {
+    display: block;
+  }
 
-    .how-to-gif {
-        margin: 0 auto;
-        height: 24rem;
-        width: 36rem;
-    }
+  .how-to-gif {
+    margin: 0 auto;
+    height: 24rem;
+    width: 36rem;
+  }
 
-    .modal-container {
-        width: calc(100% - 8rem);
-        overflow: auto;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
+  .modal-container {
+    width: calc(100% - 8rem);
+    overflow: auto;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 
-    .image-process {
-        min-width: 35rem;
-    }
+  .image-process {
+    min-width: 35rem;
+  }
 
-    .upload-image {
-        width: 100%;
-        padding: 1rem;
-    }
+  .upload-image {
+    width: 100%;
+    padding: 1rem;
+  }
 
-    .upload-animation {
-        display: flex;
-        gap: 1.5rem;
-        flex-direction: row-reverse;
-    }
+  .upload-animation {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: row-reverse;
+  }
 
-    .modal-container #form {
-        display: flex;
-        justify-content: center;
-        height: 100%;
-    }
+  .modal-container #form {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1200px) {
-    .cards-section {
-        flex-direction: column;
-    }
+  .cards-section {
+    flex-direction: column;
+  }
 
-    .card-group {
-        aspect-ratio: 3/7;
-        width: 20vmin;
-    }
+  .card-group {
+    aspect-ratio: 3/7;
+    width: 20vmin;
+  }
 
-    .big-title {
-        font-size: 6rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -100%);
-    }
+  .big-title {
+    font-size: 6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
 
-    .little-title {
-        font-size: 1.4rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 150%);
-    }
+  .little-title {
+    font-size: 1.4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+  }
 
-    #get-started-btn {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 220%);
-        padding: 1rem;
-    }
+  #get-started-btn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 220%);
+    padding: 1rem;
+  }
 
-    .how-to-gif {
-        margin: auto;
-        height: 32rem;
-        width: auto;
-    }
+  .how-to-gif {
+    margin: auto;
+    height: 32rem;
+    width: auto;
+  }
 
-    .modal-container {
-        overflow: auto;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
+  .modal-container {
+    overflow: auto;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 
-    .image-process {
-        min-width: 35rem;
-    }
+  .image-process {
+    min-width: 35rem;
+  }
 
-    .upload-image {
-        width: 100%;
-        padding: 1rem;
-    }
+  .upload-image {
+    width: 100%;
+    padding: 1rem;
+  }
 
-    .upload-animation {
-        display: flex;
-        gap: 1.5rem;
-        flex-direction: row-reverse;
-    }
+  .upload-animation {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: row-reverse;
+  }
 
-    .modal-container #form {
-        display: flex;
-        justify-content: center;
-        height: 100%;
-    }
+  .modal-container #form {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
 }

@@ -9,6 +9,7 @@ const form = document.getElementById('form');
 const imagePro = document.getElementById('image-process');
 const download = document.getElementById('download');
 const uploadAni = document.getElementById('upload-animation');
+const toastMessage = document.getElementById('toast-message');
 
 // data object
 const data = {
@@ -45,7 +46,14 @@ const getInput = () => {
   });
   form.addEventListener('change', () => {
     // if there is a change in the form, then post the inputs
-    postInputs();
+    if (data['-fileName'] === '') {
+      openToastMessage('Please upload an image');
+      setTimeout(() => {
+        closeToastMessage();
+      }, 5000);
+    } else {
+      postInputs();
+    }
   });
 };
 getInput();
@@ -60,20 +68,38 @@ const getColorPaletteIndex = () => {
 };
 
 const postInputs = () => {
+  //Start
+
   fetch('http://localhost:3000/image-process', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
-  }).then(() => {
-    const url = `http://localhost:3000/output/${data['-fileName']}`;
-    fetch(url).then(() => {
-      loadImage(url);
-      download.download = data['-fileName'];
-      download.href = url;
+  })
+    .then(async (res) => {
+      if (!res.ok) {
+        throw await res.json();
+      }
+      const url = `http://localhost:3000/output/${data['-fileName']}`;
+      fetch(url).then(() => {
+        loadImage(url);
+        download.download = data['-fileName'];
+        download.href = url;
+      });
+    })
+    .catch((error) => {
+      const id = document.getElementById(error.type);
+      openToastMessage(error.message);
+      id.style.color = 'red';
+      setTimeout(() => {
+        closeToastMessage();
+        id.style.color = 'black';
+      }, 5000);
+    })
+    .finally(() => {
+      //Finish
     });
-  });
 };
 
 imageResultContainer.addEventListener('dragover', (e) => {
@@ -108,7 +134,6 @@ imageResultContainer.addEventListener('drop', (e) => {
   }
 });
 
-
 const UploadImage = (file, imgSource) => {
   // Add a load event listener to the FileReader object, which will be triggered when the file has finished loading
   data['-fileName'] = file.name;
@@ -122,15 +147,14 @@ const UploadImage = (file, imgSource) => {
     method: 'POST',
     body: imageFormData,
   });
-}
+};
 
+const fileInput = document.createElement('input');
 
-const fileInput = document.createElement("input");
+fileInput.type = 'file';
+fileInput.style.display = 'none';
 
-fileInput.type = "file";
-fileInput.style.display = "none";
-
-uploadAni.addEventListener("click", function () {
+uploadAni.addEventListener('click', function () {
   fileInput.click();
 });
 
@@ -148,3 +172,19 @@ fileInput.addEventListener('change', (e) => {
 
   reader.readAsDataURL(file);
 });
+
+const openToastMessage = (message) => {
+  toastMessage.classList.add('toast-message');
+  toastMessage.innerText = message;
+};
+
+const closeToastMessage = () => {
+  toastMessage.style.animation = 'close-toast-message';
+  toastMessage.style.animationDuration = '1s';
+  setTimeout(() => {
+    toastMessage.classList.remove('toast-message');
+    toastMessage.innerText = '';
+    toastMessage.style.animation = '';
+    toastMessage.style.animationDuration = '';
+  }, 1000);
+};

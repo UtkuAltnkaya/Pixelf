@@ -276,20 +276,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover>.big-card:nth-child(1) {
+.card-group:hover > .big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover>.big-card:nth-child(2) {
+.card-group:hover > .big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover>.big-card:nth-child(3) {
+.card-group:hover > .big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover>.big-card:nth-child(4) {
+.card-group:hover > .big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -308,7 +308,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover>.little-card:nth-child(1) {
+.card-group:hover > .little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -317,15 +317,15 @@ html {
     */
 }
 
-.card-group:hover>.little-card:nth-child(3) {
+.card-group:hover > .little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover>.little-card:nth-child(5) {
+.card-group:hover > .little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover>.little-card:nth-child(7) {
+.card-group:hover > .little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -703,7 +703,8 @@ footer {
   border-radius: 0.5rem;
   cursor: pointer;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+    rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .upload-animation:hover {
@@ -782,4 +783,47 @@ footer {
 
 .mail {
   color: black;
+}
+
+#toast-message {
+  position: fixed;
+  display: none;
+}
+
+.toast-message {
+  display: block !important;
+  top: 1.5rem;
+  right: 12rem;
+  padding: 1rem;
+  width: 20rem;
+  height: 4rem;
+  background: #f1dbbf;
+  color: red;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.2rem;
+  text-align: center;
+  animation: open-toast-message 1s ease-in-out;
+}
+
+@keyframes open-toast-message {
+  from {
+    right: -400px;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    right: 12rem;
+  }
+}
+
+@keyframes close-toast-message {
+  from {
+    opacity: 1;
+    right: 12rem;
+  }
+  to {
+    right: -400px;
+    opacity: 0;
+  }
 }
