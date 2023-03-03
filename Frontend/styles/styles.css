@@ -54,7 +54,7 @@ html {
 
 #logo-img {
   border-radius: 100%;
-  height: 10rem;
+  height: 8rem;
 }
 
 .navbar-menu {
@@ -276,20 +276,20 @@ html {
   transform: translate(10%, 3%) rotate(5deg);
 }
 
-.card-group:hover > .big-card:nth-child(1) {
+.card-group:hover>.big-card:nth-child(1) {
   transform: translate(-75%, 16%) rotate(-24deg);
   /* Shifting 75% to left and 16 percent to below and rotating to 24 degrees left */
 }
 
-.card-group:hover > .big-card:nth-child(2) {
+.card-group:hover>.big-card:nth-child(2) {
   transform: translate(-25%, 8%) rotate(-8deg);
 }
 
-.card-group:hover > .big-card:nth-child(3) {
+.card-group:hover>.big-card:nth-child(3) {
   transform: translate(25%, 8%) rotate(8deg);
 }
 
-.card-group:hover > .big-card:nth-child(4) {
+.card-group:hover>.big-card:nth-child(4) {
   transform: translate(75%, 16%) rotate(24deg);
   /*Must do the opposite of the first card */
 }
@@ -308,7 +308,7 @@ html {
     and they're found between 100% to 300% varying from positive to negative , because of the order child number goes as odd numbers for little-card class
     and even for the big-card class (to access the child elements) 
 */
-.card-group:hover > .little-card:nth-child(1) {
+.card-group:hover>.little-card:nth-child(1) {
   transform: translate(200%, -160%) rotate(-15deg);
   /*
         background-color: red;
@@ -317,15 +317,15 @@ html {
     */
 }
 
-.card-group:hover > .little-card:nth-child(3) {
+.card-group:hover>.little-card:nth-child(3) {
   transform: translate(160%, 170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(5) {
+.card-group:hover>.little-card:nth-child(5) {
   transform: translate(-200%, -170%) rotate(15deg);
 }
 
-.card-group:hover > .little-card:nth-child(7) {
+.card-group:hover>.little-card:nth-child(7) {
   transform: translate(-280%, 140%) rotate(-15deg);
 }
 
@@ -592,6 +592,7 @@ footer {
   max-height: 40rem;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .image-result {
@@ -811,6 +812,7 @@ footer {
     right: -400px;
     opacity: 0;
   }
+
   to {
     opacity: 1;
     right: 12rem;
@@ -822,8 +824,45 @@ footer {
     opacity: 1;
     right: 12rem;
   }
+
   to {
     right: -400px;
     opacity: 0;
+  }
+}
+
+.loader-container {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: inherit;
+}
+
+
+.loader {
+  border: 8px solid #f3f3f3;
+  /* Light grey */
+  border-top: 8px solid #333;
+  /* Blue */
+  margin: auto;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

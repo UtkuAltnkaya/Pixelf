@@ -10,6 +10,7 @@ const imagePro = document.getElementById('image-process');
 const download = document.getElementById('download');
 const uploadAni = document.getElementById('upload-animation');
 const toastMessage = document.getElementById('toast-message');
+const loaderContainer = document.getElementById('loader-container');
 
 // data object
 const data = {
@@ -68,7 +69,8 @@ const getColorPaletteIndex = () => {
 };
 
 const postInputs = () => {
-  //Start
+
+  loaderContainer.style.visibility = 'visible';
 
   fetch('http://localhost:3000/image-process', {
     method: 'POST',
@@ -98,7 +100,7 @@ const postInputs = () => {
       }, 5000);
     })
     .finally(() => {
-      //Finish
+      loaderContainer.style.visibility = 'hidden';
     });
 };
 
