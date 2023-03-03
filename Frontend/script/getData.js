@@ -190,3 +190,5 @@ const closeToastMessage = () => {
     toastMessage.style.animationDuration = '';
   }, 1000);
 };
+
+// TODO Fix uploading AVI and display an error message && Photo cannot be loaded twice also fix this.
