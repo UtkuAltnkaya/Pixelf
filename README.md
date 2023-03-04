@@ -238,6 +238,7 @@ Bayram Alper KILIÇ - [@alperrkilic](https://www.linkedin.com/in/bayram-alper-ki
 
 
 Turgut Utku ALTINKAYA - [@UtkuAltnkaya](https://github.com/UtkuAltnkaya) - utkualtinkayabusiness@outlook.com
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Github][github-shield]][github2-url]
 [![Gmail][gmail-shield]][gmail2-url]
