@@ -335,7 +335,7 @@ Creating a project like the Pixelf requires a lot of research, experimentation, 
 [express-url]: https://expressjs.com/
 
 <!-- Images -->
-[pixelf-gif]: readme-images/Pixelf.gif
+[pixelf-gif]: https://github.com/UtkuAltnkaya/Pixelf/blob/main/readme-images/Pixelf.gif
 [cards-section]: readme-images/cards-section.png
 [contributors]: readme-images/contributors.png
 [download]: readme-images/download.png
